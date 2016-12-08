@@ -20,12 +20,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     public static final String LOG_TAG = MainActivity.class.getName();
 
-    /*  fill out the API_KEY */
+    /*  fill out the API_KEY by yourself*/
     private static final String API_KEY ="";
 
 
     private static final String REQUEST_URL_POPULAR1 = "http://api.themoviedb.org/3/movie/";
     private static final String REQUEST_URL_POPULAR2 = "?language=zh&api_key=";
+
+
 
     private String original_order = "top_rated";
 
