@@ -16,7 +16,7 @@ import android.widget.GridView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<MovieInfo>> {
+public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<MovieInfo>>{
 
     public static final String LOG_TAG = MainActivity.class.getName();
 
@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private static final String REQUEST_URL_POPULAR1 = "http://api.themoviedb.org/3/movie/";
     private static final String REQUEST_URL_POPULAR2 = "?language=zh&api_key=";
+
+    private static String REQUEST_URL_final;
 
 
 
@@ -97,22 +99,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public Loader<List<MovieInfo>> onCreateLoader(int id, Bundle args) {
 
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-
-
-        String orderBy = sharedPrefs.getString(
-                getString(R.string.settings_order_by_key),
-                getString(R.string.settings_order_by_default)
-        );
-
-        if(original_order.equals(orderBy) && loader_count != 0 ) {
-            return null;
-        }
-
-        loader_count++;
-        original_order = orderBy;
-
-        return new MoiveLoader(this, REQUEST_URL_POPULAR1 + orderBy  +REQUEST_URL_POPULAR2 + API_KEY);
+        return new MoiveLoader(this, REQUEST_URL_final);
     }
 
     @Override
@@ -128,5 +115,32 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onLoaderReset(Loader<List<MovieInfo>> loader) {
         mAdapter.clear();
+    }
+
+
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+
+        String orderBy = sharedPrefs.getString(
+                getString(R.string.settings_order_by_key),
+                getString(R.string.settings_order_by_default)
+        );
+
+        if(original_order.equals(orderBy) && loader_count != 0 ) {
+            loader_count++;
+            return;
+        }
+
+        loader_count++;
+        original_order = orderBy;
+        REQUEST_URL_final = REQUEST_URL_POPULAR1 + orderBy  +REQUEST_URL_POPULAR2 + API_KEY;
+        getLoaderManager().restartLoader(Movie_LOADER_ID, null, this);
+
     }
 }
