@@ -110,11 +110,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mAdapter.clear();
         if(data != null && !data.isEmpty()) {
             mAdapter.addAll(data);
-        }else{
-            // make Toast to show no Internet connection
-
         }
-
     }
 
     @Override
