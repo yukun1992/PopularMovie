@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     public static final String LOG_TAG = MainActivity.class.getName();
 
-    /*  fill out the API_KEY by yourself*/
-    private static final String API_KEY ="";
+    /*  fill out the API_KEY by yourself */
+    private static final String API_KEY ="ae3e5545ff8e675002634536af6905d4";
 
 
     private static final String REQUEST_URL_POPULAR1 = "http://api.themoviedb.org/3/movie/";
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private static final int Movie_LOADER_ID = 1;
 
-    private MoiveAdapter mAdapter;
+    private MovieAdapter mAdapter;
 
 
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         GridView movieGridView = (GridView) findViewById(R.id.gridView_movie);
 
-        mAdapter = new MoiveAdapter(this, new ArrayList<MovieInfo>());
+        mAdapter = new MovieAdapter(this, new ArrayList<MovieInfo>());
 
         movieGridView.setAdapter(mAdapter);
 
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public Loader<List<MovieInfo>> onCreateLoader(int id, Bundle args) {
 
-        return new MoiveLoader(this, REQUEST_URL_final);
+        return new MovieLoader(this, REQUEST_URL_final);
     }
 
     @Override
