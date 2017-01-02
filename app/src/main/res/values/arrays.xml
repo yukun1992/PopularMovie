@@ -3,11 +3,14 @@
     <string-array name="settings_order_by_labels">
         <item>@string/settings_order_by_rate_label</item>
         <item>@string/settings_order_by_most_recent_label</item>
+        <item>@string/settings_order_by_favorite_movie_label</item>
     </string-array>
 
     <string-array name="settings_order_by_values">
         <item>@string/settings_order_by_rate_value</item>
         <item>@string/settings_order_by_most_recent_value</item>
+        <item>@string/settings_order_by_favorite_movie_value</item>
     </string-array>
+
 
 </resources>

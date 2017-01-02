@@ -22,11 +22,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public static final String LOG_TAG = MainActivity.class.getName();
 
     /*  fill out the API_KEY by yourself */
-    private static final String API_KEY ="";
+    private static final String API_KEY ="ae3e5545ff8e675002634536af6905d4";
 
     private static final String REQUEST_URL_POPULAR1 = "http://api.themoviedb.org/3/movie/";
 
-    private static final String REQUEST_URL_POPULAR2 = "?language=zh&api_key=";
+    private static final String REQUEST_URL_POPULAR2 = "?api_key=";
 
     private static String requestUrlFinal;
 
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private static final int Movie_LOADER_ID = 1;
 
     private MovieAdapter mAdapter;
+
 
 
     @Override
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
                 MovieInfo movie = mAdapter.getItem(position);
-                intent.putExtra("key", movie);
+                intent.putExtra(Intent.EXTRA_TEXT, movie);
                 startActivity(intent);
 
             }
@@ -77,9 +78,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -102,6 +101,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         );
         original_order = orderBy;
         requestUrlFinal = REQUEST_URL_POPULAR1 + orderBy  +REQUEST_URL_POPULAR2 + API_KEY;
+        if(!orderBy.equals("popular") && !orderBy.equals("top_rated")){
+            return new MovieLoader(this, "favorite");
+        }
         return new MovieLoader(this, requestUrlFinal);
     }
 
@@ -137,6 +139,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
         loader_count++;
         original_order = orderBy;
+        if(!orderBy.equals("popular") && !orderBy.equals("top_rated")){
+            return;
+        }
         requestUrlFinal = REQUEST_URL_POPULAR1 + orderBy  +REQUEST_URL_POPULAR2 + API_KEY;
         getLoaderManager().restartLoader(Movie_LOADER_ID, null, this);
 

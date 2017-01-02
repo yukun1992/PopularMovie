@@ -26,4 +26,11 @@
     <string name="settings_order_by_most_recent_label">Popular</string>
     <string name="settings_order_by_most_recent_value" translatable="false">popular</string>
 
+    <string name="settings_order_by_favorite_movie_label">Favorite_Movie</string>
+    <string name="settings_order_by_favorite_movie_value" translatable="false">favorite_movie</string>
+
+    <string name="add_favorite">add favorite</string>
+    <string name="show_favorite_movie">Favorite_Movie</string>
+    <string name="play_trailer">Play Trailer</string>
+
 </resources>
