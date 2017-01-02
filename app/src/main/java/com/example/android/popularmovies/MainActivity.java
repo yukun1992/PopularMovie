@@ -140,7 +140,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         loader_count++;
         original_order = orderBy;
         if(!orderBy.equals("popular") && !orderBy.equals("top_rated")){
-            return;
+            requestUrlFinal = "favorite";
+            getLoaderManager().restartLoader(Movie_LOADER_ID, null, this);
         }
         requestUrlFinal = REQUEST_URL_POPULAR1 + orderBy  +REQUEST_URL_POPULAR2 + API_KEY;
         getLoaderManager().restartLoader(Movie_LOADER_ID, null, this);
