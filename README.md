@@ -1,4 +1,3 @@
-# Project1
+# Project1 and 2 for Udacity Android Developper
 
-##How to run
-just run entertainment_center.py file
+
