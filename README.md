@@ -1,3 +1,4 @@
-# PopularMovie
+# Project1
 
-Udacity project 1,2 
+##How to run
+just run entertainment_center.py file
