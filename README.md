@@ -6,7 +6,7 @@
 
 
 ## More project description 
-https://review.udacity.com/#!/rubrics/233/view
+https://review.udacity.com/#!/rubrics/67/view
 
 
 ![img](https://github.com/yukun1992/PopularMovie/blob/version2/demo.png)
