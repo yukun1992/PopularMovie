@@ -6,6 +6,7 @@
 
 
 ## More project description 
+https://review.udacity.com/#!/rubrics/66/view <br>
 https://review.udacity.com/#!/rubrics/67/view
 
 
