@@ -9,5 +9,5 @@
 https://review.udacity.com/#!/rubrics/66/view <br>
 https://review.udacity.com/#!/rubrics/67/view
 
- <img src="https://github.com/yukun1992/PopularMovie/blob/version2/demo.png" width = "500" height = "500" align=center />
+ <img src="https://github.com/yukun1992/PopularMovie/blob/version2/demo.png" width = "300" height = "300" align=center />
 
