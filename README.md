@@ -10,4 +10,4 @@ https://review.udacity.com/#!/rubrics/66/view <br>
 https://review.udacity.com/#!/rubrics/67/view
 
 
-![img](https://github.com/yukun1992/PopularMovie/blob/version2/demo.png)
+![img](https://github.com/yukun1992/PopularMovie/blob/version2/demo.png = 200 * 200)
