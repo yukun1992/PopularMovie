@@ -1,8 +1,9 @@
 # Project1 and 2 for Udacity Android Developper <br>
 
 ## Feature <br>
-1. make use of sharedpreference to save favoriate moive
-2. make use of loader to keep data in the screen when roatate device
+1. Implement sharedpreference to save favoriate moive
+2. Implement loader to keep data in the screen when roatate device
+3. Parse JSON format
 
 
 ## More project description 
